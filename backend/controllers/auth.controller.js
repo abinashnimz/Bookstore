@@ -35,4 +35,29 @@ const signup = async (req, res)=>{
     }
 }
 
-module.exports = signup;
+const signin = async (req, res)=>{
+    try{
+        const { email, password } = req.body;
+        if(!email || !password || email=="" || password==""){
+            return res.status(402).json({msg:"All fields are required"});
+        }
+        const userExist = await User.findOne({email:email});
+        if(!userExist){
+            return res.status(402).json({msg:"Invalid Credentials"});
+        }
+        const isPassValid = await userExist.comparePassword(password);
+        if(!isPassValid){
+            return res.status(403).json({msg:"Invalid Credentials"});
+        }
+        if(isPassValid){
+            const token = await userExist.generateToken();
+            console.log(token);
+            res.status(200).json({id:userExist._id, role:userExist.role, token:token});
+            // res.status(200).cookie("jwt", token, {httpOnly:true}).json({id:userExist._id, role:userExist.role, token:token});
+        }
+    }catch(err){
+        console.log(err);
+    }
+}
+
+module.exports = {signup, signin};
