@@ -13,6 +13,7 @@ const authenticateUser = async (req, res, next)=>{
                 return res.status(401).json({msg: "Authentication token required"});
             }
             req.user = user;
+            console.log("Authentication success");
         })
         next()
     }catch(err){
