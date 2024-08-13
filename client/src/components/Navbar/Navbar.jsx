@@ -1,14 +1,14 @@
+import { Link } from "react-router-dom";
+
 export const Navbar = ()=>{
 
     const links=[
         {title: "Home", link:"/"},
-        {title: "About", link:"/about-us"},
+        // {title: "About", link:"/about-us"},
         {title: "Books", link:"/all-books"},
         {title: "Cart", link:"/cart"},
         {title: "Profile", link:"/profile"},
     ];
-    console.log(links)
-
     return(
         <div className="bg-zinc-800 text-white px-8 py-4 flex justify-between">
             <div className="flex gap-4 items-center"> 
@@ -18,12 +18,12 @@ export const Navbar = ()=>{
             <div className="flex gap-4 items-center text-xl">
                 <div className="flex gap-4 items-center">
                     {links.map((item, ind)=>(
-                        <div key={ind} className="hover:text-blue-400 transition-all duration-300">{item.title}</div>
+                        <Link to={item.link} className="hover:text-blue-500 transition-all duration-300" key={ind}>{item.title}</Link>
                     ))}
                 </div>
                 <div className="flex gap-4">
-                    <button className="border border-indigo-400 px-2 py-1 rounded hover:bg-white hover:text-zinc-500 transition-all duration-300">LogIn</button>
-                    <button className="bg-indigo-400 px-2 py-1 rounded hover:bg-white hover:text-zinc-500 transition-all duration-300">SignIn</button>
+                    <Link to={"/sign-in"} className="border border-indigo-400 px-2 py-1 rounded hover:bg-white hover:text-zinc-500 transition-all duration-300">LogIn</Link>
+                    <Link to={"/sign-up"} className="bg-indigo-400 px-2 py-1 rounded hover:bg-white hover:text-zinc-500 transition-all duration-300">SignUp</Link>
                 </div>
             </div>
         </div>
