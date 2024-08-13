@@ -1,5 +1,13 @@
+import { Navbar } from "./components/Navbar/Navbar";
+import { Footer } from "./components/Footer/Footer";
+import { Home } from "./pages/Home";
+
 export const App = ()=>{
   return(
-    <h1 className="bg-green-500">App</h1>
+    <>
+      <Navbar/>
+      <Home/>
+      <Footer/>
+    </>
   )
 }
