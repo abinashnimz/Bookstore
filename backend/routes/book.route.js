@@ -5,7 +5,7 @@ const { addBook, updateBook, deleteBook, getBooks, recentBooks, getBook } = requ
 router.post("/addBook", authenticateUser, addBook);
 router.put("/updateBook", authenticateUser, updateBook);
 router.delete("/deleteBook", authenticateUser, deleteBook);
-router.get("/getBooks", authenticateUser, getBooks);
+router.get("/getBooks", getBooks);
 router.get("/recentBooks", recentBooks);
 router.get("/getBook/:id", getBook);
 
