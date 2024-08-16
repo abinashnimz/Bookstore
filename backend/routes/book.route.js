@@ -6,7 +6,7 @@ router.post("/addBook", authenticateUser, addBook);
 router.put("/updateBook", authenticateUser, updateBook);
 router.delete("/deleteBook", authenticateUser, deleteBook);
 router.get("/getBooks", authenticateUser, getBooks);
-router.get("/recentBooks", authenticateUser, recentBooks);
-router.get("/getBook/:id", authenticateUser, getBook);
+router.get("/recentBooks", recentBooks);
+router.get("/getBook/:id", getBook);
 
 module.exports = router;

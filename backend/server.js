@@ -1,6 +1,7 @@
 require("dotenv").config();
 const express = require("express");
 const app = express();
+const cors = require("cors");
 const dbConn = require("./utils/conn");
 const PORT = process.env.LOCAL_PORT
 
@@ -12,7 +13,7 @@ const cartRouter = require("./routes/cart.route");
 const orderRouter = require("./routes/order.route");
 
 app.use(express.json());
-
+app.use(cors());
 app.use("/api/auth", authRouter);
 app.use("/api/user", userRouter);
 app.use("/api/book", bookRouter);
