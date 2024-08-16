@@ -7,6 +7,7 @@ import { Profile } from "./pages/Profile";
 import { SignIn } from "./pages/SignIn";
 import { SignUp } from "./pages/SignUp";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BookDetails } from "./pages/BookDetails";
 
 export const App = ()=>{
   return(
@@ -20,6 +21,7 @@ export const App = ()=>{
           <Route path="/profile" element={<Profile/>}/>
           <Route path="/sign-in" element={<SignIn/>}/>
           <Route path="/sign-up" element={<SignUp/>}/>
+          <Route path="/book-details/:id/" element={<BookDetails/>}/>
         </Routes>
         <Footer/>
       </Router>

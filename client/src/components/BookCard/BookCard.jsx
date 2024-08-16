@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 export const BookCard = ({props})=>{
     return(
         <>
-            <Link>
+            <Link to={`/book-details/${props._id}`}>
                 <div className="bg-zinc-800 p-4 rounded flex flex-col gap-2 text-white">
                     <div className="bg-zinc-900 flex items-center justify-center rounded">
                         <img src={props.url} alt="book_img" className="h-[25vh]"/>
